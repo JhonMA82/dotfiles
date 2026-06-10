@@ -1,0 +1,7 @@
+# Engram memory artifacts (local only)
+.engram/
+
+# Editor temp files
+*.swp
+*.swo
+*~
