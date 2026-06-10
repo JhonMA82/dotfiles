@@ -2,6 +2,17 @@
 
 Natural-language dotfile management via chezmoi + opencode skills. Say "change ghostty theme to tokyo-night" and the system detects the domain, applies the change, validates it, and versions it.
 
+## New Machine
+
+On a fresh CachyOS install:
+
+1. Install opencode
+2. Open this project in opencode
+3. Say "bootstrap" or "setup dotfiles"
+4. The `cfg-bootstrap` skill guides you step by step
+
+Done. All your dotfiles, themes, and configs applied.
+
 ## Quick Path
 
 1. Say what you want: *"change ghostty theme to catppuccin-mocha"*

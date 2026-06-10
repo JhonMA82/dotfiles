@@ -41,6 +41,7 @@ Extract from user message:
 | fish, shell, bash, zsh | domain = fish (deferred) |
 | niri, compositor, wayland, tiling | domain = niri (deferred) |
 | yazi, file, explorer, fm, opener, glow, markdown, md, preview | domain = yazi |
+| bootstrap, new machine, fresh install, setup dotfiles, onboarding, inicializar, máquina nueva | domain = bootstrap (one-time setup wizard) |
 | git, commit, branch, repo | domain = git (deferred) |
 | theme, tema | action = theme |
 | font, fuente, typography | action = font |
@@ -109,5 +110,6 @@ Return to user:
 - `cfg-chezmoi/SKILL.md` — shared chezmoi versioning operations
 - `cfg-ghostty/SKILL.md` — ghostty domain skill
 - `cfg-yazi/SKILL.md` — yazi domain skill
+- `cfg-bootstrap/SKILL.md` — new-machine onboarding wizard
 - `<available_skills>` — runtime skill discovery
 - `AGENTS.md` — hardware constraints
