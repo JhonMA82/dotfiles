@@ -25,7 +25,7 @@ Load this skill when the user asks to change, configure, or manage any dotfile �
 |-----------|--------|
 | Domain detected, action clear | Confirm: "I detect domain={domain}, action={action}. Routing to cfg-{domain}. OK?" |
 | Domain detected, action ambiguous | Ask user to clarify: "What do you want to do with {domain}?" |
-| Domain not in keyword table (unknown tool) | Extract the tool name from the user's message. Ask: "No conozco {tool}. ¿Qué es, qué hace, y tenés una URL de documentación?" Only after understanding the tool, offer to create `cfg-{tool}`. Never proceed to chezmoi directly. |
+| Domain not in keyword table (unknown tool) | Extract the tool name from the user's message. Ask: "No conozco {tool}. ¿Qué es, qué hace, y tenés una URL de documentación?" Only after understanding the tool, offer to create `cfg-{tool}`. **If a new cfg-* skill is created, you MUST also: (1) add domain to keyword table in this file, (2) add skill to README.md Available Skills table, (3) update `.atl/skill-registry.md`.** Never proceed to chezmoi directly. |
 | Domain not found (cfg-* skill missing) | List available cfg-* skills. Suggest creating `cfg-{domain}`. |
 | Multiple domains match | Ask user to choose: "Did you mean ghostty, fish, or niri?" |
 | No cfg-* skills exist | "No config automation skills installed yet. Want me to create one?" |

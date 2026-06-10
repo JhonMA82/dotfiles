@@ -25,9 +25,11 @@ Done. All your dotfiles, themes, and configs applied.
 | Skill | Role | User-facing |
 |-------|------|-------------|
 | `cfg` | Orchestrator — intent parsing, domain routing | Yes |
-| `cfg-ghostty` | Ghostty terminal — theme, font, keybindings | Yes |
-| `cfg-yazi` | Yazi file manager — openers, keymaps, theme | Yes |
+| `cfg-ghostty` | Ghostty terminal — theme, font, keybindings, shaders | Yes |
 | `cfg-niri` | Niri compositor — outputs, binds, window-rules, animations | Yes |
+| `cfg-fish` | Fish shell — aliases, PATH, functions, env vars, integrations | Yes |
+| `cfg-yazi` | Yazi file manager — openers, keymaps, theme | Yes |
+| `cfg-atuin` | Atuin shell history — search, sync, daemon, theme, stats | Yes |
 | `cfg-chezmoi` | Shared versioning — add, re-add, diff, commit | No |
 | `cfg-bootstrap` | New-machine onboarding wizard | Yes |
 
@@ -37,14 +39,15 @@ When asking for ANY dotfile change — no matter how you phrase it — the agent
 
 ## The Pipeline
 
-Every domain skill follows the same 5-step contract:
+Every domain skill follows the same 6-step contract:
 
 | Step | Action | Blocks on fail? |
 |------|--------|:---:|
 | **READ** | Load config from chezmoi source + hardware context from `AGENTS.md` | No |
 | **PLAN** | Determine field, old→new value; check hardware constraints | No |
-| **APPLY** | Edit chezmoi source, preserve structure and comments | No |
+| **APPLY** | Edit config, preserve structure and comments | No |
 | **VALIDATE** | Run domain validator (e.g. `ghostty +validate-config`) | **Yes** |
+| **CONFIRM** | Ask user to test the change — only proceed if user says it works | **Yes** |
 | **VERSIONAR** | `chezmoi re-add` + conventional commit via `cfg-chezmoi` | No |
 
 Commit format: `type(domain): description` — e.g. `feat(ghostty): change theme to tokyo-night`.
@@ -55,7 +58,12 @@ Commit format: `type(domain): description` — e.g. `feat(ghostty): change theme
 .opencode/skills/cfg-{domain}/SKILL.md
 ```
 
-Follow the contract from `cfg-common.md`. Define trigger keywords, the validation command (must exit 0), hardware concerns from `AGENTS.md`, and the config path in chezmoi source. Regenerate the registry with `/skill-registry`.
+Follow the contract from `cfg-common.md`. Define trigger keywords, the validation command (must exit 0), hardware concerns from `AGENTS.md`, and the config path in chezmoi source.
+
+**When adding a new cfg-* skill, you MUST also:**
+1. Add the domain to the keyword table in `cfg/SKILL.md`
+2. Add the skill to the **Available Skills** table in this README
+3. Regenerate the registry with `/skill-registry`
 
 ## Multi-Machine Strategy
 
@@ -74,18 +82,27 @@ Every skill reads `AGENTS.md` before suggesting settings:
 ## File Layout
 
 ```
-~/.local/share/chezmoi/          ← chezmoi source (versioned)
-├── .chezmoi.yaml.tmpl           ← machine identity
+~/misconfig/chezmoi/               ← chezmoi source (versioned)
+├── .chezmoi.yaml.tmpl             ← machine identity (templated)
 ├── .chezmoiignore
-└── dot_config/ghostty/config
+└── dot_config/
+    ├── ghostty/config             ← terminal: theme, shaders
+    ├── fish/config.fish           ← shell: aliases, env vars
+    ├── niri/config.kdl            ← compositor: binds, outputs
+    ├── yazi/                      ← file manager: keymaps, theme
+    └── atuin/config.toml          ← shell history: search, sync
 
-.opencode/skills/                ← project skills (versioned)
+.opencode/skills/                  ← project skills (versioned)
 ├── _shared/
-│   ├── cfg-common.md            ← pipeline contract
-│   └── cfg-system.md            ← this document
-├── cfg/SKILL.md                 ← orchestrator
-├── cfg-chezmoi/SKILL.md         ← versioning
-└── cfg-ghostty/SKILL.md         ← ghostty domain
+│   ├── cfg-common.md              ← pipeline contract
+│   └── cfg-system.md              ← this document
+├── cfg/SKILL.md                   ← orchestrator
+├── cfg-chezmoi/SKILL.md           ← versioning
+├── cfg-ghostty/SKILL.md           ← ghostty domain
+├── cfg-fish/SKILL.md              ← fish domain
+├── cfg-niri/SKILL.md              ← niri domain
+├── cfg-yazi/SKILL.md              ← yazi domain
+└── cfg-atuin/SKILL.md             ← atuin domain
 ```
 
 ## Troubleshooting
