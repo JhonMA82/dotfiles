@@ -42,6 +42,7 @@ Extract from user message:
 | fish, shell, alias, path, function, plugin, fisher, abbr, prompt, fzf, zoxide, starship | domain = fish |
 | niri, compositor, wayland, tiling, outputs, binds, window-rules, animaciones, gaps, layout, monitores, pantallas | domain = niri |
 | yazi, file, explorer, fm, opener, glow, markdown, md, preview | domain = yazi |
+| atuin, shell history, sync, search, daemon, stats, ctrl-r | domain = atuin |
 | bootstrap, new machine, fresh install, setup dotfiles, onboarding, inicializar, máquina nueva | domain = bootstrap (one-time setup wizard) |
 | git, commit, branch, repo | domain = git (deferred) |
 | theme, tema | action = theme |
