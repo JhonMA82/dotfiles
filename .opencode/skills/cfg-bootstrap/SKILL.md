@@ -31,7 +31,7 @@ Load this skill when the user wants to set up dotfiles on a new CachyOS (Arch-ba
 | No config for tool in dotfiles | Skip tool entirely |
 | GitHub not authenticated | Guide through `gh auth login` |
 | Git identity missing | Prompt for name/email, set via `git config --global` |
-| Repo clone fails | Warn: "Repo `jhonmx21/misconfig` not found. Create it first on GitHub." |
+| Repo clone fails | Warn: "Repo `jhonmx21/dotfiles` not found. Create it first on GitHub." |
 | `.chezmoi.yaml.tmpl` has empty identity | Prompt user to fill `name` and `email` |
 | Chezmoi diff shows local changes | Show diff, ask before applying |
 | Validators unavailable | Warn + skip; show config for manual review |
@@ -94,34 +94,49 @@ Check each: `which <tool>` or `pacman -Q <pkg>`. Report what's missing, ASK befo
 - Check `git config --global user.name` and `git config --global user.email`
 - If missing: ask user for name/email and set via `git config --global`
 
-### Step 4: Clone misconfig
+### Step 4: Clone dotfiles repo
 
+- **Repo name on GitHub:** `jhonmx21/dotfiles`
+- **Default local path:** `~/dev/dotfiles` (matches the repo name)
+- Ask user if they want a different path. If they do, use theirs.
 - Create workspace if needed: `mkdir -p ~/dev`
-- Clone: `gh repo clone jhonmx21/misconfig ~/dev/misconfig`
+- Clone: `gh repo clone jhonmx21/dotfiles ~/dev/dotfiles` (or the user's chosen path)
 - Fallback: if repo doesn't exist, warn user to create it on GitHub first
-- If `~/dev/misconfig` already exists: verify it's the right repo, skip clone
+- If the target directory already exists: verify it's the right repo, skip clone
+
+**Store the resolved clone path** as `$DOTFILES_PATH` for later steps (chezmoi config, tool detection).
 
 ### Step 5: Chezmoi Config & Init
 
-The misconfig repo contains the chezmoi source at `~/dev/misconfig/chezmoi/`. We need to tell chezmoi to use this as its source directory.
+The cloned repo contains the chezmoi source at `$DOTFILES_PATH/chezmoi/`. We need to tell chezmoi to use this as its source directory.
 
-1. **Create chezmoi config:**
+1. **Resolve the absolute source path** from the user's home:
+   ```bash
+   # $DOTFILES_PATH was set in Step 4 (e.g., ~/dev/dotfiles)
+   # Resolve ~ to absolute path:
+   DOTFILES_ABS=$(realpath "$DOTFILES_PATH")
+   SOURCE_DIR="$DOTFILES_ABS/chezmoi"
+   ```
+
+2. **Create chezmoi config** with the resolved absolute path:
    ```bash
    mkdir -p ~/.config/chezmoi
-   ```
-   Write `~/.config/chezmoi/chezmoi.toml`:
-   ```toml
-   sourceDir = "/home/juan/dev/misconfig/chezmoi"
+   echo "sourceDir = \"$SOURCE_DIR\"" > ~/.config/chezmoi/chezmoi.toml
    ```
 
-2. **Initialize chezmoi** with the local source:
+   Example result on a machine where user is `juan` and default path was used:
+   ```toml
+   sourceDir = "/home/juan/dev/dotfiles/chezmoi"
+   ```
+
+3. **Initialize chezmoi** with the local source:
    ```bash
-   chezmoi init --source ~/dev/misconfig/chezmoi
+   chezmoi init --source "$SOURCE_DIR"
    ```
    This links chezmoi to the cloned repo without re-cloning from GitHub.
 
-3. Read `~/dev/misconfig/chezmoi/.chezmoi.yaml.tmpl` and check identity fields (`name`, `email`).
-4. If empty: prompt user to fill them, then edit the template.
+4. Read `$SOURCE_DIR/.chezmoi.yaml.tmpl` and check identity fields (`name`, `email`).
+5. If empty: prompt user to fill them, then edit the template.
 
 **Do NOT apply yet.** Tool installation must happen first.
 
@@ -130,7 +145,7 @@ The misconfig repo contains the chezmoi source at `~/dev/misconfig/chezmoi/`. We
 **Scan the cloned repo to discover which tools have configs:**
 
 ```bash
-ls ~/dev/misconfig/chezmoi/dot_config/
+ls "$DOTFILES_PATH/chezmoi/dot_config/"
 ```
 
 Compare the results against the Tool Detection Map. For each matching tool, check if it's installed:
