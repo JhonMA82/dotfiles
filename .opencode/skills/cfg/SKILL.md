@@ -39,7 +39,7 @@ Extract from user message:
 |----------------|---------|
 | ghostty, terminal, alacritty | domain = ghostty |
 | fish, shell, bash, zsh | domain = fish (deferred) |
-| niri, compositor, wayland, tiling | domain = niri (deferred) |
+| niri, compositor, wayland, tiling, outputs, binds, window-rules, animaciones, gaps, layout, monitores, pantallas | domain = niri |
 | yazi, file, explorer, fm, opener, glow, markdown, md, preview | domain = yazi |
 | bootstrap, new machine, fresh install, setup dotfiles, onboarding, inicializar, máquina nueva | domain = bootstrap (one-time setup wizard) |
 | git, commit, branch, repo | domain = git (deferred) |
@@ -109,6 +109,7 @@ Return to user:
 - `_shared/cfg-common.md` — pipeline contract for all domain skills
 - `cfg-chezmoi/SKILL.md` — shared chezmoi versioning operations
 - `cfg-ghostty/SKILL.md` — ghostty domain skill
+- `cfg-niri/SKILL.md` — niri compositor domain skill
 - `cfg-yazi/SKILL.md` — yazi domain skill
 - `cfg-bootstrap/SKILL.md` — new-machine onboarding wizard
 - `<available_skills>` — runtime skill discovery
