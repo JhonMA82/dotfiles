@@ -47,5 +47,8 @@ keybind = shift+enter=text:\n
 # Rando stuff
 gtk-single-instance = true
 
+# Custom shader — cursor trail effect
+custom-shader = shaders/cursor_smear.glsl
+
 # Dank color generation
 theme = dankcolors
