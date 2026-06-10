@@ -9,12 +9,13 @@ metadata:
 
 ## Activation Contract
 
-Load this skill when the user asks to change ghostty configuration — theme, font, keybindings, appearance, or any `ghostty` keyword. Follow the READ→PLAN→APPLY→VALIDATE→VERSIONAR pipeline from `cfg-common.md`.
+Load this skill when the user asks to change ghostty configuration — theme, font, keybindings, appearance, or any `ghostty` keyword. Follow the READ→PLAN→APPLY→VALIDATE→CONFIRM→VERSIONAR pipeline from `cfg-common.md`.
 
 ## Hard Rules
 
 - ALWAYS read `AGENTS.md` before suggesting GPU-intensive settings. Intel Broadwell-U: NO `background-blur`, prefer `background-opacity`.
 - ALWAYS run `ghostty +validate-config` after edits. If in TTY (no `$WAYLAND_DISPLAY`), warn + show diff — do NOT block.
+- NEVER commit without human confirmation. `ghostty +validate-config` only checks syntax, not visual behavior. After VALIDATE passes, ask the user to test the change in Ghostty and confirm it works before committing.
 - Preserve existing comments and structure when editing the config. Only change the target line.
 - Delegate all chezmoi operations to `cfg-chezmoi`. Never run `chezmoi` commands directly.
 - Commit message format: `type(ghostty): {description}`.
@@ -23,9 +24,10 @@ Load this skill when the user asks to change ghostty configuration — theme, fo
 
 | Situation | Action |
 |-----------|--------|
-| User requests theme change | READ → PLAN (parse theme value) → APPLY (update `theme =`) → VALIDATE → VERSIONAR |
-| User requests font change | READ AGENTS.md first → PLAN (check GPU for blur) → APPLY (update `font-family =`, `font-size =`) → VALIDATE → VERSIONAR |
-| User requests keybinding | READ current keybinds → PLAN (modifier+key=action) → APPLY (append/edit `keybind =`) → VALIDATE → VERSIONAR |
+| User requests theme change | READ → PLAN (parse theme value) → APPLY (update `theme =`) → VALIDATE → CONFIRM → VERSIONAR |
+| User requests font change | READ AGENTS.md first → PLAN (check GPU for blur) → APPLY (update `font-family =`, `font-size =`) → VALIDATE → CONFIRM → VERSIONAR |
+| User requests keybinding | READ current keybinds → PLAN (modifier+key=action) → APPLY (append/edit `keybind =`) → VALIDATE → CONFIRM → VERSIONAR |
+| User requests shader install | READ → PLAN (shader path + config entry) → APPLY (write `.glsl` file + edit config) → VALIDATE (syntax) → CONFIRM → VERSIONAR |
 | User requests plugin install | Ghostty has no plugin system (as of 2026). Report to user. |
 | GPU-intensive feature (blur) | Warn: Broadwell GPU does not support background blur. Suggest opacity. Ask confirmation. |
 | File not in chezmoi source | Delegate first-add to `cfg-chezmoi` |
@@ -88,12 +90,21 @@ echo "Showing diff for manual review:"
 chezmoi diff
 ```
 
-- Exit code 0 → pass, continue to VERSIONAR
+- Exit code 0 → pass, continue to CONFIRM
 - Exit code non-zero → fail, BLOCK commit, show error output
+
+### CONFIRM
+
+**MANDATORY for ALL changes.** `ghostty +validate-config` only checks config syntax — it does NOT verify shaders compile, themes look right, fonts render correctly, or keybindings work.
+
+1. After VALIDATE passes, STOP and tell the user: "Config validated. Testealo en Ghostty y confirmame si funciona como esperás."
+2. Do NOT commit or push until the user explicitly confirms the change works.
+3. If the user reports the change doesn't work, go back to APPLY with the fix. Do NOT start a new commit chain — amend the staged changes instead.
+4. Only proceed to VERSIONAR after the user says it works.
 
 ### VERSIONAR
 
-Delegate to `cfg-chezmoi`:
+**Only run after user confirms the change works.** Delegate to `cfg-chezmoi`:
 - `chezmoi re-add` the config file
 - `git commit -m "feat(ghostty): {description}"`
 - Return commit hash and diff to user
