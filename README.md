@@ -30,6 +30,7 @@ Done. All your dotfiles, themes, and configs applied.
 | `cfg-fish` | Fish shell — aliases, PATH, functions, env vars, integrations | Yes |
 | `cfg-yazi` | Yazi file manager — openers, keymaps, theme | Yes |
 | `cfg-atuin` | Atuin shell history — search, sync, daemon, theme, stats | Yes |
+| `cfg-starship` | Starship cross-shell prompt — themes, presets, modules, format | Yes |
 | `cfg-chezmoi` | Shared versioning — add, re-add, diff, commit | No |
 | `cfg-bootstrap` | New-machine onboarding wizard | Yes |
 
@@ -90,7 +91,8 @@ Every skill reads `AGENTS.md` before suggesting settings:
     ├── fish/config.fish           ← shell: aliases, env vars
     ├── niri/config.kdl            ← compositor: binds, outputs
     ├── yazi/                      ← file manager: keymaps, theme
-    └── atuin/config.toml          ← shell history: search, sync
+    ├── atuin/config.toml            ← shell history: search, sync
+    └── starship.toml                ← cross-shell prompt: theme, format
 
 .opencode/skills/                  ← project skills (versioned)
 ├── _shared/
@@ -102,7 +104,8 @@ Every skill reads `AGENTS.md` before suggesting settings:
 ├── cfg-fish/SKILL.md              ← fish domain
 ├── cfg-niri/SKILL.md              ← niri domain
 ├── cfg-yazi/SKILL.md              ← yazi domain
-└── cfg-atuin/SKILL.md             ← atuin domain
+├── cfg-atuin/SKILL.md              ← atuin domain
+└── cfg-starship/SKILL.md           ← starship domain
 ```
 
 ## Troubleshooting

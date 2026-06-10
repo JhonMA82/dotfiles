@@ -1,7 +1,7 @@
 # Skill Registry
 
 > Auto-generated index. `SKILL.md` remains the source of truth.  
-> Updated: 2026-06-10 | 19 skills indexed
+> Updated: 2026-06-10 | 20 skills indexed
 
 ## Registry Contract
 
@@ -16,9 +16,10 @@ Read the referenced `SKILL.md` for authoritative instructions — this file is a
 | cfg-atuin | Trigger: atuin, shell history, sync, search mode, daemon, theme, stats, history filter | `/home/juan/misconfig/.opencode/skills/cfg-atuin/SKILL.md` |
 | cfg-bootstrap | Trigger: new machine, fresh install, setup dotfiles, onboarding, inicializar dotfiles | `/home/juan/misconfig/.opencode/skills/cfg-bootstrap/SKILL.md` |
 | cfg-chezmoi | Trigger: chezmoi add, chezmoi re-add, chezmoi diff, chezmoi apply, chezmoi commit | `/home/juan/misconfig/.opencode/skills/cfg-chezmoi/SKILL.md` |
-| cfg-fish | Trigger: fish, shell, alias, path, function, plugin, fisher, abbr, prompt, fzf, zoxide, starship | `/home/juan/misconfig/.opencode/skills/cfg-fish/SKILL.md` |
+| cfg-fish | Trigger: fish, shell, alias, path, function, plugin, fisher, abbr, fzf, zoxide | `/home/juan/misconfig/.opencode/skills/cfg-fish/SKILL.md` |
 | cfg-ghostty | Trigger: ghostty, terminal, theme, font, plugin, keybinding, opacity, padding, cursor, background-blur | `/home/juan/misconfig/.opencode/skills/cfg-ghostty/SKILL.md` |
 | cfg-niri | Trigger: niri, compositor, outputs, binds, window-rules, animaciones, gaps, layout | `/home/juan/misconfig/.opencode/skills/cfg-niri/SKILL.md` |
+| cfg-starship | Trigger: starship, prompt, starship theme, starship preset, starship module | `/home/juan/misconfig/.opencode/skills/cfg-starship/SKILL.md` |
 | cfg-yazi | Trigger: yazi, file manager, opener, glow, keymap, theme, preview, markdown | `/home/juan/misconfig/.opencode/skills/cfg-yazi/SKILL.md` |
 
 ## User Skills (~/.config/opencode/skills/)

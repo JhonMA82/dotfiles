@@ -39,8 +39,9 @@ Extract from user message:
 | Keyword Pattern | Maps To |
 |----------------|---------|
 | ghostty, terminal, alacritty | domain = ghostty |
-| fish, shell, alias, path, function, plugin, fisher, abbr, prompt, fzf, zoxide, starship, eza, exa, ls | domain = fish |
+| fish, shell, alias, path, function, plugin, fisher, abbr, fzf, zoxide, eza, exa, ls | domain = fish |
 | niri, compositor, wayland, tiling, outputs, binds, window-rules, animaciones, gaps, layout, monitores, pantallas | domain = niri |
+| starship, prompt, starship theme, starship preset, starship module, prompt theme, prompt config | domain = starship |
 | yazi, file, explorer, fm, opener, glow, markdown, md, preview | domain = yazi |
 | atuin, shell history, sync, search, daemon, stats, ctrl-r | domain = atuin |
 | bootstrap, new machine, fresh install, setup dotfiles, onboarding, inicializar, máquina nueva | domain = bootstrap (one-time setup wizard) |
