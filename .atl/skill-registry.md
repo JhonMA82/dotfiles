@@ -1,65 +1,43 @@
-# Skill Registry — misconfig
+# Skill Registry
 
-> Auto-generated index for sub-agent delegation.
-> `SKILL.md` remains the source of truth — agents MUST read the referenced file before acting.
-> Generated: 2026-06-09 | Mode: openspec | Scope: user + project
+> Auto-generated index. `SKILL.md` remains the source of truth.  
+> Updated: 2026-06-10 | 19 skills indexed
 
 ## Registry Contract
 
-- The registry is an index of trigger-to-path mappings, not a skill summary.
-- Every row identifies one skill with its trigger, scope, and exact `SKILL.md` path.
-- Delegators pass the path to sub-agents; sub-agents read the real `SKILL.md`.
-- Do NOT generate compact rules from this index.
+Delegators use this index to match skill names to exact `SKILL.md` paths.  
+Read the referenced `SKILL.md` for authoritative instructions — this file is an index only.
 
-## Convention Files
+## Project Skills (misconfig/.opencode/skills/)
 
-| File | Path | Scope |
-|------|------|-------|
-| AGENTS.md | `/home/juan/misconfig/AGENTS.md` | project |
+| Skill | Trigger / Description | Path |
+|-------|----------------------|------|
+| cfg | Trigger: cambiar, configurar, tema, fuente, plugin, instalar, dotfiles, cfg, configure, setup | `/home/juan/misconfig/.opencode/skills/cfg/SKILL.md` |
+| cfg-atuin | Trigger: atuin, shell history, sync, search mode, daemon, theme, stats, history filter | `/home/juan/misconfig/.opencode/skills/cfg-atuin/SKILL.md` |
+| cfg-bootstrap | Trigger: new machine, fresh install, setup dotfiles, onboarding, inicializar dotfiles | `/home/juan/misconfig/.opencode/skills/cfg-bootstrap/SKILL.md` |
+| cfg-chezmoi | Trigger: chezmoi add, chezmoi re-add, chezmoi diff, chezmoi apply, chezmoi commit | `/home/juan/misconfig/.opencode/skills/cfg-chezmoi/SKILL.md` |
+| cfg-fish | Trigger: fish, shell, alias, path, function, plugin, fisher, abbr, prompt, fzf, zoxide, starship | `/home/juan/misconfig/.opencode/skills/cfg-fish/SKILL.md` |
+| cfg-ghostty | Trigger: ghostty, terminal, theme, font, plugin, keybinding, opacity, padding, cursor, background-blur | `/home/juan/misconfig/.opencode/skills/cfg-ghostty/SKILL.md` |
+| cfg-niri | Trigger: niri, compositor, outputs, binds, window-rules, animaciones, gaps, layout | `/home/juan/misconfig/.opencode/skills/cfg-niri/SKILL.md` |
+| cfg-yazi | Trigger: yazi, file manager, opener, glow, keymap, theme, preview, markdown | `/home/juan/misconfig/.opencode/skills/cfg-yazi/SKILL.md` |
 
-## Indexed Skills (18)
+## User Skills (~/.config/opencode/skills/)
 
-| # | Skill | Trigger | Scope | Path |
-|---|-------|---------|-------|------|
-| 1 | branch-pr | creating, opening, or preparing PRs for review | user | `~/.config/opencode/skills/branch-pr/SKILL.md` |
-| 2 | cachyos-troubleshoot | system problems (wifi, audio, boot, kernel panic, Niri, snapshots, pacman, AUR, etc.) | user | `~/.config/opencode/skills/cachyos-troubleshoot/SKILL.md` |
-| 3 | cfg | cambiar, configurar, tema, fuente, plugin, instalar, dotfiles, cfg, configure, setup | project | `.opencode/skills/cfg/SKILL.md` |
-| 4 | cfg-chezmoi | chezmoi add, re-add, diff, apply, commit, dotfiles versioning | project | `.opencode/skills/cfg-chezmoi/SKILL.md` |
-| 5 | cfg-fish | fish, shell, alias, path, function, plugin, fisher, abbr, prompt, fzf, zoxide, starship | project | `.opencode/skills/cfg-fish/SKILL.md` |
-| 6 | cfg-ghostty | ghostty, terminal, theme, font, plugin, keybinding, opacity, padding, cursor | project | `.opencode/skills/cfg-ghostty/SKILL.md` |
-| 7 | cfg-niri | niri, compositor, outputs, binds, window-rules, animaciones, gaps, layout, monitores, pantallas | project | `.opencode/skills/cfg-niri/SKILL.md` |
-| 8 | cfg-yazi | yazi, file manager, opener, glow, keymap, theme, preview, markdown, md | project | `.opencode/skills/cfg-yazi/SKILL.md` |
-| 9 | cfg-bootstrap | new machine, fresh install, setup dotfiles, onboarding, inicializar dotfiles, bootstrap, máquina nueva | project | `.opencode/skills/cfg-bootstrap/SKILL.md` |
-| 10 | chained-pr | PRs over 400 lines, stacked PRs, review slices | user | `~/.config/opencode/skills/chained-pr/SKILL.md` |
-| 11 | cognitive-doc-design | writing guides, READMEs, RFCs, onboarding, architecture, or review-facing docs | user | `~/.config/opencode/skills/cognitive-doc-design/SKILL.md` |
-| 12 | comment-writer | PR feedback, issue replies, reviews, Slack messages, or GitHub comments | user | `~/.config/opencode/skills/comment-writer/SKILL.md` |
-| 13 | go-testing | Go tests, go test coverage, Bubbletea teatest, golden files | user | `~/.config/opencode/skills/go-testing/SKILL.md` |
-| 14 | issue-creation | creating GitHub issues, bug reports, or feature requests | user | `~/.config/opencode/skills/issue-creation/SKILL.md` |
-| 15 | judgment-day | judgment day, dual review, adversarial review, juzgar | user | `~/.config/opencode/skills/judgment-day/SKILL.md` |
-| 16 | skill-creator | new skills, agent instructions, documenting AI usage patterns | user | `~/.config/opencode/skills/skill-creator/SKILL.md` |
-| 17 | skill-improver | improve skills, audit skills, refactor skills, skill quality | user | `~/.config/opencode/skills/skill-improver/SKILL.md` |
-| 18 | work-unit-commits | implementation, commit splitting, chained PRs, or keeping tests and docs with code | user | `~/.config/opencode/skills/work-unit-commits/SKILL.md` |
+| Skill | Trigger / Description | Path |
+|-------|----------------------|------|
+| branch-pr | Trigger: creating, opening, or preparing PRs for review | `/home/juan/.config/opencode/skills/branch-pr/SKILL.md` |
+| cachyos-troubleshoot | Trigger: system problem — wifi, audio, boot, kernel panic, Niri/DMS breakage | `/home/juan/.config/opencode/skills/cachyos-troubleshoot/SKILL.md` |
+| chained-pr | Trigger: PRs over 400 lines, stacked PRs, review slices | `/home/juan/.config/opencode/skills/chained-pr/SKILL.md` |
+| cognitive-doc-design | Trigger: writing guides, READMEs, RFCs, onboarding, architecture, or review-facing docs | `/home/juan/.config/opencode/skills/cognitive-doc-design/SKILL.md` |
+| comment-writer | Trigger: PR feedback, issue replies, reviews, Slack messages, or GitHub comments | `/home/juan/.config/opencode/skills/comment-writer/SKILL.md` |
+| go-testing | Trigger: Go tests, go test coverage, Bubbletea teatest, golden files | `/home/juan/.config/opencode/skills/go-testing/SKILL.md` |
+| issue-creation | Trigger: creating GitHub issues, bug reports, or feature requests | `/home/juan/.config/opencode/skills/issue-creation/SKILL.md` |
+| judgment-day | Trigger: judgment day, dual review, adversarial review, juzgar | `/home/juan/.config/opencode/skills/judgment-day/SKILL.md` |
+| skill-creator | Trigger: new skills, agent instructions, documenting AI usage patterns | `/home/juan/.config/opencode/skills/skill-creator/SKILL.md` |
+| skill-improver | Trigger: improve skills, audit skills, refactor skills, skill quality | `/home/juan/.config/opencode/skills/skill-improver/SKILL.md` |
+| work-unit-commits | Trigger: implementation, commit splitting, chained PRs | `/home/juan/.config/opencode/skills/work-unit-commits/SKILL.md` |
 
-## Skipped / Deduplicated
+## Dedup Rules
 
-| Skill | Reason |
-|-------|--------|
-| customize-opencode | Built-in (no file path), excluded |
-| sdd-apply | SDD internal skill — excluded |
-| sdd-archive | SDD internal skill — excluded |
-| sdd-design | SDD internal skill — excluded |
-| sdd-explore | SDD internal skill — excluded |
-| sdd-init | SDD internal skill — excluded |
-| sdd-onboard | SDD internal skill — excluded |
-| sdd-propose | SDD internal skill — excluded |
-| sdd-spec | SDD internal skill — excluded |
-| sdd-tasks | SDD internal skill — excluded |
-| sdd-verify | SDD internal skill — excluded |
-| _shared | Shared references — not a skill |
-| skill-registry | Registry itself — excluded |
-
-## Scan Sources
-
-- User skills: `~/.config/opencode/skills/` (23 found, 11 indexed)
-- Project skills: `.opencode/skills/` (7 found, 7 indexed)
-- Convention files: `AGENTS.md` (1 found)
+- Project-level skills win over user-level skills with the same name.
+- `sdd-*` skills, `_shared`, and `skill-registry` are excluded from the registry.
