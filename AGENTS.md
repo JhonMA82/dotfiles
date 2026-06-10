@@ -56,6 +56,18 @@ Target environment for agents and AI assistants working on this machine.
 ## Config Automation (cfg)
 
 - Use `cfg` skill to manage dotfiles: "change ghostty theme", "add fzf to fish"
-- Skills: cfg (orchestrator), cfg-chezmoi (versioning), cfg-ghostty (terminal)
+- Skills: cfg (orchestrator), cfg-chezmoi (versioning), cfg-ghostty, cfg-yazi, cfg-niri, cfg-bootstrap
 - Validation before commit is mandatory
-- All changes versioned via chezmoi in `~/.local/share/chezmoi/`
+- All changes versioned via chezmoi in `chezmoi/` (unified repo)
+
+### MANDATORY: Every config change goes through cfg
+
+When the user mentions ANY dotfile, config file, or tool setup (niri, ghostty, yazi, fish, git, alacritty, dms, waybar, pipewire, etc.), you MUST:
+
+1. Load the `cfg` skill FIRST
+2. Check if `cfg-{domain}` exists
+3. If it exists → delegate to it
+4. If it doesn't → offer to create it, THEN delegate
+5. NEVER run `chezmoi add` or edit `~/.config/` directly without cfg
+
+This applies to ANY phrasing: "subí la config de X", "agregá X al repo", "quiero versionar X", "cambiá X de Y", etc.

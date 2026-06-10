@@ -26,7 +26,14 @@ Listo. Todos tus dotfiles, themes y configs aplicados.
 |-------|------|-------------|
 | `cfg` | Orquestador — análisis de intención, enrutamiento de dominio | Sí |
 | `cfg-ghostty` | Terminal Ghostty — tema, fuente, atajos de teclado | Sí |
+| `cfg-yazi` | Gestor de archivos Yazi — openers, keymaps, tema | Sí |
+| `cfg-niri` | Compositor Niri — outputs, binds, window-rules, animaciones | Sí |
 | `cfg-chezmoi` | Versionado compartido — add, re-add, diff, commit | No |
+| `cfg-bootstrap` | Asistente de instalación para máquina nueva | Sí |
+
+### Regla Cero: Todo cambio de config pasa por cfg
+
+Cuando pidas CUALQUIER cambio de dotfiles — sin importar cómo lo formules — el agente DEBE cargar `cfg` primero. Nada de `chezmoi add` o ediciones directas en `~/.config/` sin pasar por cfg.
 
 ## El Pipeline
 

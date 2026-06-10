@@ -26,7 +26,14 @@ Done. All your dotfiles, themes, and configs applied.
 |-------|------|-------------|
 | `cfg` | Orchestrator — intent parsing, domain routing | Yes |
 | `cfg-ghostty` | Ghostty terminal — theme, font, keybindings | Yes |
+| `cfg-yazi` | Yazi file manager — openers, keymaps, theme | Yes |
+| `cfg-niri` | Niri compositor — outputs, binds, window-rules, animations | Yes |
 | `cfg-chezmoi` | Shared versioning — add, re-add, diff, commit | No |
+| `cfg-bootstrap` | New-machine onboarding wizard | Yes |
+
+### Rule Zero: Every config change goes through cfg
+
+When asking for ANY dotfile change — no matter how you phrase it — the agent MUST load `cfg` first. No `chezmoi add` or direct `~/.config/` edits bypass this.
 
 ## The Pipeline
 
