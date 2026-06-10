@@ -38,7 +38,7 @@ Extract from user message:
 | Keyword Pattern | Maps To |
 |----------------|---------|
 | ghostty, terminal, alacritty | domain = ghostty |
-| fish, shell, bash, zsh | domain = fish (deferred) |
+| fish, shell, alias, path, function, plugin, fisher, abbr, prompt, fzf, zoxide, starship | domain = fish |
 | niri, compositor, wayland, tiling, outputs, binds, window-rules, animaciones, gaps, layout, monitores, pantallas | domain = niri |
 | yazi, file, explorer, fm, opener, glow, markdown, md, preview | domain = yazi |
 | bootstrap, new machine, fresh install, setup dotfiles, onboarding, inicializar, máquina nueva | domain = bootstrap (one-time setup wizard) |
@@ -109,6 +109,7 @@ Return to user:
 - `_shared/cfg-common.md` — pipeline contract for all domain skills
 - `cfg-chezmoi/SKILL.md` — shared chezmoi versioning operations
 - `cfg-ghostty/SKILL.md` — ghostty domain skill
+- `cfg-fish/SKILL.md` — fish shell domain skill
 - `cfg-niri/SKILL.md` — niri compositor domain skill
 - `cfg-yazi/SKILL.md` — yazi domain skill
 - `cfg-bootstrap/SKILL.md` — new-machine onboarding wizard

@@ -17,7 +17,7 @@
 |------|------|-------|
 | AGENTS.md | `/home/juan/misconfig/AGENTS.md` | project |
 
-## Indexed Skills (17)
+## Indexed Skills (18)
 
 | # | Skill | Trigger | Scope | Path |
 |---|-------|---------|-------|------|
@@ -25,19 +25,20 @@
 | 2 | cachyos-troubleshoot | system problems (wifi, audio, boot, kernel panic, Niri, snapshots, pacman, AUR, etc.) | user | `~/.config/opencode/skills/cachyos-troubleshoot/SKILL.md` |
 | 3 | cfg | cambiar, configurar, tema, fuente, plugin, instalar, dotfiles, cfg, configure, setup | project | `.opencode/skills/cfg/SKILL.md` |
 | 4 | cfg-chezmoi | chezmoi add, re-add, diff, apply, commit, dotfiles versioning | project | `.opencode/skills/cfg-chezmoi/SKILL.md` |
-| 5 | cfg-ghostty | ghostty, terminal, theme, font, plugin, keybinding, opacity, padding, cursor | project | `.opencode/skills/cfg-ghostty/SKILL.md` |
-| 6 | cfg-niri | niri, compositor, outputs, binds, window-rules, animaciones, gaps, layout, monitores, pantallas | project | `.opencode/skills/cfg-niri/SKILL.md` |
-| 7 | cfg-yazi | yazi, file manager, opener, glow, keymap, theme, preview, markdown, md | project | `.opencode/skills/cfg-yazi/SKILL.md` |
-| 8 | cfg-bootstrap | new machine, fresh install, setup dotfiles, onboarding, inicializar dotfiles, bootstrap, máquina nueva | project | `.opencode/skills/cfg-bootstrap/SKILL.md` |
-| 9 | chained-pr | PRs over 400 lines, stacked PRs, review slices | user | `~/.config/opencode/skills/chained-pr/SKILL.md` |
-| 10 | cognitive-doc-design | writing guides, READMEs, RFCs, onboarding, architecture, or review-facing docs | user | `~/.config/opencode/skills/cognitive-doc-design/SKILL.md` |
-| 11 | comment-writer | PR feedback, issue replies, reviews, Slack messages, or GitHub comments | user | `~/.config/opencode/skills/comment-writer/SKILL.md` |
-| 12 | go-testing | Go tests, go test coverage, Bubbletea teatest, golden files | user | `~/.config/opencode/skills/go-testing/SKILL.md` |
-| 13 | issue-creation | creating GitHub issues, bug reports, or feature requests | user | `~/.config/opencode/skills/issue-creation/SKILL.md` |
-| 14 | judgment-day | judgment day, dual review, adversarial review, juzgar | user | `~/.config/opencode/skills/judgment-day/SKILL.md` |
-| 15 | skill-creator | new skills, agent instructions, documenting AI usage patterns | user | `~/.config/opencode/skills/skill-creator/SKILL.md` |
-| 16 | skill-improver | improve skills, audit skills, refactor skills, skill quality | user | `~/.config/opencode/skills/skill-improver/SKILL.md` |
-| 17 | work-unit-commits | implementation, commit splitting, chained PRs, or keeping tests and docs with code | user | `~/.config/opencode/skills/work-unit-commits/SKILL.md` |
+| 5 | cfg-fish | fish, shell, alias, path, function, plugin, fisher, abbr, prompt, fzf, zoxide, starship | project | `.opencode/skills/cfg-fish/SKILL.md` |
+| 6 | cfg-ghostty | ghostty, terminal, theme, font, plugin, keybinding, opacity, padding, cursor | project | `.opencode/skills/cfg-ghostty/SKILL.md` |
+| 7 | cfg-niri | niri, compositor, outputs, binds, window-rules, animaciones, gaps, layout, monitores, pantallas | project | `.opencode/skills/cfg-niri/SKILL.md` |
+| 8 | cfg-yazi | yazi, file manager, opener, glow, keymap, theme, preview, markdown, md | project | `.opencode/skills/cfg-yazi/SKILL.md` |
+| 9 | cfg-bootstrap | new machine, fresh install, setup dotfiles, onboarding, inicializar dotfiles, bootstrap, máquina nueva | project | `.opencode/skills/cfg-bootstrap/SKILL.md` |
+| 10 | chained-pr | PRs over 400 lines, stacked PRs, review slices | user | `~/.config/opencode/skills/chained-pr/SKILL.md` |
+| 11 | cognitive-doc-design | writing guides, READMEs, RFCs, onboarding, architecture, or review-facing docs | user | `~/.config/opencode/skills/cognitive-doc-design/SKILL.md` |
+| 12 | comment-writer | PR feedback, issue replies, reviews, Slack messages, or GitHub comments | user | `~/.config/opencode/skills/comment-writer/SKILL.md` |
+| 13 | go-testing | Go tests, go test coverage, Bubbletea teatest, golden files | user | `~/.config/opencode/skills/go-testing/SKILL.md` |
+| 14 | issue-creation | creating GitHub issues, bug reports, or feature requests | user | `~/.config/opencode/skills/issue-creation/SKILL.md` |
+| 15 | judgment-day | judgment day, dual review, adversarial review, juzgar | user | `~/.config/opencode/skills/judgment-day/SKILL.md` |
+| 16 | skill-creator | new skills, agent instructions, documenting AI usage patterns | user | `~/.config/opencode/skills/skill-creator/SKILL.md` |
+| 17 | skill-improver | improve skills, audit skills, refactor skills, skill quality | user | `~/.config/opencode/skills/skill-improver/SKILL.md` |
+| 18 | work-unit-commits | implementation, commit splitting, chained PRs, or keeping tests and docs with code | user | `~/.config/opencode/skills/work-unit-commits/SKILL.md` |
 
 ## Skipped / Deduplicated
 
@@ -60,5 +61,5 @@
 ## Scan Sources
 
 - User skills: `~/.config/opencode/skills/` (23 found, 11 indexed)
-- Project skills: `.opencode/skills/` (6 found, 6 indexed)
+- Project skills: `.opencode/skills/` (7 found, 7 indexed)
 - Convention files: `AGENTS.md` (1 found)
