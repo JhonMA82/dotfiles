@@ -1,0 +1,3 @@
+dot_config/niri/config.d/
+dot_config/fish/fish_variables
+.chezmoi.yaml.tmpl
