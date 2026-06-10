@@ -10,3 +10,10 @@ fish_add_path $PNPM_HOME
 #    # smth smth
 #end
 
+
+# Vault Linux Brain — sync script
+source ~/dev/linux_brain/sync.sh
+
+if status is-interactive
+    atuin init fish | source
+end
