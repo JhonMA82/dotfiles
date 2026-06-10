@@ -13,7 +13,7 @@ Load this skill when the user asks to change, configure, or manage any dotfile �
 
 ## Hard Rules
 
-- NEVER edit configs directly. Always delegate to a `cfg-{domain}` skill.
+- **cfg is the MANDATORY gatekeeper for ALL dotfile, config, or tool-setup changes.** Whether the tool is known (ghostty, fish) or unknown (atuin, starship, bat), you MUST route through cfg. Never run chezmoi directly, never add files directly, never edit configs without cfg approval. cfg alone decides whether to delegate to an existing `cfg-{domain}` skill or offer to create one.
 - Parse intent FIRST, confirm with user SECOND, delegate THIRD. Never skip confirmation when ambiguous.
 - Read `<available_skills>` at runtime to discover available `cfg-*` domain skills.
 - Use keyword matching, not full NLU. The intent parser is a pattern matcher — simple, fast, and predictable.
@@ -25,7 +25,8 @@ Load this skill when the user asks to change, configure, or manage any dotfile �
 |-----------|--------|
 | Domain detected, action clear | Confirm: "I detect domain={domain}, action={action}. Routing to cfg-{domain}. OK?" |
 | Domain detected, action ambiguous | Ask user to clarify: "What do you want to do with {domain}?" |
-| Domain not found | List available cfg-* skills. Suggest creating `cfg-{domain}`. |
+| Domain not in keyword table (unknown tool) | Extract the tool name from the user's message. Confirm: "Detecto {tool} como herramienta nueva. No existe cfg-{tool} aún. ¿Querés que lo cree para trackear su config?" Never proceed to chezmoi directly. |
+| Domain not found (cfg-* skill missing) | List available cfg-* skills. Suggest creating `cfg-{domain}`. |
 | Multiple domains match | Ask user to choose: "Did you mean ghostty, fish, or niri?" |
 | No cfg-* skills exist | "No config automation skills installed yet. Want me to create one?" |
 
@@ -92,8 +93,9 @@ cfg reports: "Theme changed to tokyo-night. Commit: 222ca2b"
 
 | Error | Response |
 |-------|----------|
-| No domain detected | "I didn't detect a known domain in your request. Known domains: {list}. What did you mean?" |
-| No cfg-* domain skill | "No cfg-{domain} skill exists yet. Want me to create one? We'd need a SKILL.md with the READ→PLAN→APPLY→VALIDATE→VERSIONAR pipeline." |
+| No domain detected (unrecognized tool) | Extract tool name from user message. "Detecto {tool} como herramienta nueva. No existe cfg-{tool} aún. ¿Querés que lo cree?" |
+| No domain detected (vague request) | "I didn't detect a known tool in your request. What tool or config file are you working with?" |
+| No cfg-* domain skill | "No cfg-{domain} skill exists yet. Want me to create one? We'd need a SKILL.md with the READ→PLAN→APPLY→VALIDATE→CONFIRM→VERSIONAR pipeline." |
 | Ambiguous domain (matches 2+) | "Your request could match {domains}. Which one did you mean?" |
 | Domain skill exists but is deferred/not implemented | "cfg-{domain} exists but is not yet implemented. It's deferred to Phase 2." |
 

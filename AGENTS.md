@@ -71,3 +71,5 @@ When the user mentions ANY dotfile, config file, or tool setup (niri, ghostty, y
 5. NEVER run `chezmoi add` or edit `~/.config/` directly without cfg
 
 This applies to ANY phrasing: "subí la config de X", "agregá X al repo", "quiero versionar X", "cambiá X de Y", etc.
+
+This includes UNKNOWN tools. If the user says "instalé atuin, tiene dotfiles, preparalo", you STILL go through cfg. The cfg skill has a decision gate for new tools — let it handle the routing. Never decide on your own that a tool "doesn't need" cfg.
