@@ -39,7 +39,7 @@ Extract from user message:
 | Keyword Pattern | Maps To |
 |----------------|---------|
 | ghostty, terminal, alacritty | domain = ghostty |
-| fish, shell, alias, path, function, plugin, fisher, abbr, prompt, fzf, zoxide, starship | domain = fish |
+| fish, shell, alias, path, function, plugin, fisher, abbr, prompt, fzf, zoxide, starship, eza, exa, ls | domain = fish |
 | niri, compositor, wayland, tiling, outputs, binds, window-rules, animaciones, gaps, layout, monitores, pantallas | domain = niri |
 | yazi, file, explorer, fm, opener, glow, markdown, md, preview | domain = yazi |
 | atuin, shell history, sync, search, daemon, stats, ctrl-r | domain = atuin |
