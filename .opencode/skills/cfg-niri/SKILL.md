@@ -142,6 +142,25 @@ Supported animation types:
 
 Layout controls gaps, background color, column centering, focus ring border, and shadows.
 
+Border colors can be solid (`active-color`, `inactive-color`) or gradients (`active-gradient`, `inactive-gradient`).
+**CRITICAL**: Niri gradients use inline KDL properties with `=`, NOT child blocks.
+
+✅ Correct:
+```kdl
+active-gradient from="#707070" to="#404040" angle=180
+```
+
+❌ Wrong (child block — passes `niri validate` but FAILS at runtime):
+```kdl
+active-gradient {
+    from "#707070"
+    to "#404040"
+    angle 180
+}
+```
+
+Gradient options: `from`, `to`, `angle` (degrees, default 180), `in` ("srgb" | "srgb-linear" | "oklch" | "oklch longer hue"), `relative-to` ("window" | "workspace-view").
+
 ```text
 # Plan: change border active-color to "#ff0000"
 # Edit: layout > border > active-color "#ff0000"
