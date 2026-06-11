@@ -20,6 +20,8 @@ Load this skill when the user asks to change niri configuration — outputs (mon
 - ALWAYS run `niri validate` after edits. If niri is not the active compositor (no `$WAYLAND_DISPLAY` pointing to niri), warn but still run validation — it checks syntax, not runtime.
 - Delegate all chezmoi operations to `cfg-chezmoi`. Never run `chezmoi` commands directly.
 - Commit message format: `type(niri): {description}`.
+- **Niri live-reloads config automatically on save.** Once `chezmoi apply` writes the file, changes take effect immediately — no restart, no `kill -HUP`, no logout needed. If auto-reload doesn't trigger, use: `niri msg action load-config-file --path ~/.config/niri/config.kdl`.
+- **Context7 fallback rule**: when `niri msg action --help`, `niri --help`, or local man pages don't answer a config/action question, query Context7 (`/niri-wm/niri` or `/websites/niri-wm_github_io_niri`) BEFORE telling the user to restart, log out, or that something "isn't supported."
 
 ## Decision Gates
 
@@ -166,9 +168,10 @@ niri validate
 niri validate ~/.local/share/chezmoi/dot_config/niri/config.kdl
 ```
 
-- Exit code 0 → pass, continue to VERSIONAR
+- Exit code 0 → pass. Niri will auto-reload the config. Continue to VERSIONAR.
 - Exit code non-zero → fail, BLOCK commit, show error output
 - If `niri` binary not found: "WARNING: niri binary not found — cannot validate config syntax. Showing diff for manual review:"
+- After `chezmoi apply` (VERSIONAR phase), the config is live — no restart required. If changes aren't visible, run: `niri msg action load-config-file --path ~/.config/niri/config.kdl`
 
 ### VERSIONAR
 
@@ -192,6 +195,6 @@ Return to `cfg` orchestrator:
 - `cfg-chezmoi/SKILL.md` — chezmoi operations
 - `~/.config/niri/config.kdl` — real config on disk (symlinked by chezmoi)
 - `~/.local/share/chezmoi/dot_config/niri/config.kdl` — chezmoi source copy
-- Context7: `/YaLTeR/niri` — KDL config syntax, action reference, window rule syntax
+- Context7: `/niri-wm/niri` (primary, 1406 snippets) and `/websites/niri-wm_github_io_niri` (wiki, 2703 snippets) — KDL config syntax, action reference, window rule syntax, live reload
 - `AGENTS.md` — hardware constraints (Broadwell GPU, 3.7 GiB RAM, Niri Wayland, DMS)
 - `openspec/specs/niri-config/spec.md` — niri spec with hostname-template requirements
