@@ -191,6 +191,7 @@ niri validate ~/.local/share/chezmoi/dot_config/niri/config.kdl
 - Exit code non-zero → fail, BLOCK commit, show error output
 - If `niri` binary not found: "WARNING: niri binary not found — cannot validate config syntax. Showing diff for manual review:"
 - After `chezmoi apply` (VERSIONAR phase), the config is live — no restart required. If changes aren't visible, run: `niri msg action load-config-file --path ~/.config/niri/config.kdl`
+- **CRITICAL**: DMS auto-generates `dms/colors.kdl` and `dms/layout.kdl` which OVERWRITE the main config. If changes don't appear visually, check if DMS is overriding them. The fix: move the `layout` block AFTER the `include` lines in `config.kdl`, or comment out the DMS includes.
 
 ### VERSIONAR
 
